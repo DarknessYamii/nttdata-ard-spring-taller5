@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Modificar Cliente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body class="container">
+    <!-- Get action updateClient in ClientController getting the idClient to receive all attributes of the Client  -->
+    <form action="#" th:action="@{/update/{idClient}(idClient=${client.idClient})}" th:object="${client}" method="post">
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <!-- Get attribute Name -->
+                    <label class="form-label" for="name">Nombre:</label>
+                    <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name">
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <!-- Get attribute FirstName -->
+                    <label class="form-label" for="firstName">Primer apellido:</label>
+                    <input class="form-control" type="text" th:field="*{firstName}" id="firstName" placeholder="firstName">
+                    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <!-- Get attribute SecondName -->
+                    <label class="form-label" for="secondName">Segundo apellido:</label>
+                    <input class="form-control" type="text" th:field="*{secondName}" id="secondName" placeholder="secondName">
+                    <span th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-outline mb-4">
+            <!-- Get attribute DNI -->
+            <label class="form-label" for="dni">DNI</label>
+            <input class="form-control" type="text" th:field="*{dni}" id="dni" placeholder="dni">
+            <span th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <!-- Get attribute Birthdate -->
+            <label class="form-label" for="birthdate">Birthdate:</label>
+            <input class="form-control" type="text" th:field="*{birthdate}" id="birthdate" name="birthdate" placeholder="dd-MM-yyyy" value="01-06-2002">
+            <span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></span>
+        </div>
+        <!-- Button Submit to modify client -->
+        <input class="btn btn-primary btn-block mb-4" type="submit" value="Modificar Cliente">
+    </form>
+</body>
+
+</html>
